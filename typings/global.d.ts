@@ -1,4 +1,4 @@
-import { MeltingPotTheme } from "../packages/styles/StylesInterfaces";
+import { MeltingPotTheme } from "../src/packages/styles/StylesInterfaces";
 
 declare global {
   namespace Jss {
