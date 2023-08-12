@@ -1,13 +1,8 @@
 import { createContext } from "react";
+import { DefaultTheme } from "react-jss";
 import { createTheming } from "theming";
 
-const context = createContext({});
+const context = createContext({} as DefaultTheme);
 const theming = createTheming(context);
 
-const { withTheme, ThemeProvider, useTheme } = theming;
-
-export default {
-  withTheme,
-  ThemeProvider,
-  useTheme,
-};
+export const { withTheme, ThemeProvider, useTheme } = theming;

@@ -1,10 +1,11 @@
 import { PropsWithChildren } from "react";
-import { DefaultTheme, ThemeProvider } from "react-jss";
+import { DefaultTheme } from "react-jss";
 import CSSFixer from "./cssFixer/CSSFixer";
+import { ThemeProvider } from "../styles/Theme";
 
 const baseTheme: DefaultTheme = {
   typography: {
-    fontSize: 72,
+    fontSize: "14px",
   },
 };
 
