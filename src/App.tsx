@@ -1,4 +1,4 @@
-import BaseApp from "../packages/baseApp/BaseApp";
+import BaseApp from "./packages/baseApp/BaseApp";
 
 const App = () => {
   return (
