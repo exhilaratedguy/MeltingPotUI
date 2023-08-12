@@ -1,4 +1,5 @@
 import BaseApp from "./packages/baseApp/BaseApp";
+import Button from "./packages/components/button/Button";
 
 const App = () => {
   return (
@@ -12,7 +13,7 @@ const App = () => {
           justifyContent: "center",
         }}
       >
-        Hello
+        <Button />
       </div>
     </BaseApp>
   );

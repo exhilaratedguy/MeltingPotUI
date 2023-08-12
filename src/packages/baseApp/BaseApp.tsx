@@ -7,6 +7,13 @@ const baseTheme: DefaultTheme = {
   typography: {
     fontSize: "14px",
   },
+  components: {
+    button: {
+      root: {
+        backgroundColor: "aqua",
+      },
+    },
+  },
 };
 
 const BaseApp = ({ children }: PropsWithChildren) => {
