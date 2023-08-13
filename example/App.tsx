@@ -14,7 +14,8 @@ const App = () => {
           justifyContent: "center",
         }}
       >
-        <Button />
+        <Button>Programming</Button>
+        <Button disabled>Programming</Button>
       </div>
     </BaseApp>
   );
@@ -33,7 +34,10 @@ const baseTheme: DefaultTheme = {
   components: {
     button: {
       root: {
-        backgroundColor: "aqua",
+        backgroundColor: "red",
+      },
+      label: {
+        color: "black",
       },
     },
   },
