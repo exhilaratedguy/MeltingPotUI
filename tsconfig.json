@@ -13,10 +13,6 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-
-    /* Linting */
-    "noUnusedParameters": false,
-    "noUnusedLocals": false
   },
   "include": ["src", "example", "vite.config.ts"],
 }
