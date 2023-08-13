@@ -1,24 +1,11 @@
 import { PropsWithChildren } from "react";
-import { DefaultTheme } from "react-jss";
-import CSSFixer from "./cssFixer/CSSFixer";
 import { ThemeProvider } from "../styles/Theme";
+import { BaseAppProps } from "./BaseAppInterfaces";
+import CSSFixer from "./cssFixer/CSSFixer";
 
-const baseTheme: DefaultTheme = {
-  typography: {
-    fontSize: "14px",
-  },
-  components: {
-    button: {
-      root: {
-        backgroundColor: "aqua",
-      },
-    },
-  },
-};
-
-const BaseApp = ({ children }: PropsWithChildren) => {
+const BaseApp = ({ theme, children }: PropsWithChildren<BaseAppProps>) => {
   return (
-    <ThemeProvider theme={baseTheme}>
+    <ThemeProvider theme={theme}>
       <CSSFixer />
       {children}
     </ThemeProvider>

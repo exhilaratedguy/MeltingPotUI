@@ -1,18 +1,7 @@
-import { createStyles } from "../../styles/Theme";
-import { mergeThemeStyle } from "../../styles/ThemeUtils";
-
-const useStyles = createStyles((theme) => ({
-  btn: {
-    "&:hover": {
-      backgroundColor: "red",
-    },
-
-    ...mergeThemeStyle(theme.components?.button?.root),
-  },
-}));
+import { useButtonStyles } from "./Button.styles";
 
 const Button = () => {
-  const classes = useStyles();
+  const classes = useButtonStyles();
 
   return <button className={classes.btn}>Button</button>;
 };
