@@ -14,7 +14,6 @@ export const useButtonStyles = createStyles<string, ButtonStylesProps>(
       borderRadius: 4,
       height: 35,
       transition: "box-shadow 90ms ease-in-out",
-
       ...mergeThemeStyle(components?.button?.root),
 
       ...(!props.disabled && {
@@ -42,7 +41,6 @@ export const useButtonStyles = createStyles<string, ButtonStylesProps>(
       ...(props.disabled && {
         cursor: "default",
         backgroundColor: applyOpacity(palette.primary, 30),
-
         ...mergeThemeStyle(components?.button?.disabled?.root),
       }),
     }),
@@ -50,7 +48,6 @@ export const useButtonStyles = createStyles<string, ButtonStylesProps>(
     label: (props) => ({
       userSelect: "none",
       color: "white",
-
       ...mergeThemeStyle(components?.button?.label),
 
       ...(props.disabled && {

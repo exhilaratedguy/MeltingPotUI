@@ -1,3 +1,4 @@
+import { ButtonHTMLAttributes } from "react";
 import type { CSSObject } from "../../Styles/StylesInterfaces";
 import { VariantThemes } from "../../Styles/ThemeUtils";
 
@@ -9,9 +10,7 @@ export interface BaseButtonTheme {
 export type ButtonTheme = BaseButtonTheme &
   VariantThemes<["disabled", "focused", "hovered"], BaseButtonTheme>;
 
-export interface ButtonProps {
-  disabled?: boolean;
-}
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
 export interface ButtonStylesProps {
   disabled?: boolean;

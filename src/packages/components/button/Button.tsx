@@ -2,11 +2,14 @@ import { PropsWithChildren } from "react";
 import { useButtonStyles } from "./Button.styles";
 import { ButtonProps } from "./ButtonInterfaces";
 
-const Button = ({ disabled, children }: PropsWithChildren<ButtonProps>) => {
-  const classes = useButtonStyles({ disabled });
+const Button = ({
+  children,
+  ...buttonProps
+}: PropsWithChildren<ButtonProps>) => {
+  const classes = useButtonStyles({ disabled: buttonProps.disabled });
 
   return (
-    <button className={classes.button} disabled={disabled}>
+    <button className={classes.button} {...buttonProps}>
       <span className={classes.label}>{children}</span>
     </button>
   );
