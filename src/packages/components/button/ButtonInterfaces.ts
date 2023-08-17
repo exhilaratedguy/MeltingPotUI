@@ -1,5 +1,5 @@
-import type { CSSObject } from "../../styles/StylesInterfaces";
-import { VariantThemes } from "../../styles/ThemeUtils";
+import type { CSSObject } from "../../Styles/StylesInterfaces";
+import { VariantThemes } from "../../Styles/ThemeUtils";
 
 export interface BaseButtonTheme {
   root?: CSSObject;

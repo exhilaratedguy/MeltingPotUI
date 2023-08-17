@@ -1,6 +1,6 @@
 import { CSSProperties } from "react";
 import { DefaultTheme, Styles } from "react-jss";
-import { ButtonTheme } from "../components/button/ButtonInterfaces";
+import { ButtonTheme } from "../Components/Button/ButtonInterfaces";
 
 type ValueType<T> = T[keyof T];
 

@@ -1,7 +1,7 @@
 import { DefaultTheme } from "react-jss";
-import BaseApp from "../src/packages/baseApp/BaseApp";
-import Button from "../src/packages/components/button/Button";
-import { createStyles } from "../src/packages/styles/Theme";
+import BaseApp from "../src/packages/BaseApp/BaseApp";
+import Button from "../src/packages/Components/Button/Button";
+import { createStyles } from "../src/packages/Styles/Theme";
 
 const App = () => {
   const classes = styles();

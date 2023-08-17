@@ -1,6 +1,6 @@
 import { memo } from "react";
 import "./CSSFixer.css";
-import { useTheme } from "../../styles/Theme";
+import { useTheme } from "../../Styles/Theme";
 
 const root = document.getElementById("root");
 

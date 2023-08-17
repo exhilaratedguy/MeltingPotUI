@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
-import { ThemeProvider } from "../styles/Theme";
+import { ThemeProvider } from "../Styles/Theme";
 import { BaseAppProps } from "./BaseAppInterfaces";
-import CSSFixer from "./cssFixer/CSSFixer";
+import CSSFixer from "./CssFixer/CSSFixer";
 
 const BaseApp = ({ theme, children }: PropsWithChildren<BaseAppProps>) => {
   return (

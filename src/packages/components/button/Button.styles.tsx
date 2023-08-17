@@ -1,5 +1,5 @@
-import { createStyles } from "../../styles/Theme";
-import { applyOpacity, mergeThemeStyle } from "../../styles/ThemeUtils";
+import { createStyles } from "../../Styles/Theme";
+import { applyOpacity, mergeThemeStyle } from "../../Styles/ThemeUtils";
 import { ButtonStylesProps } from "./ButtonInterfaces";
 
 export const useButtonStyles = createStyles<string, ButtonStylesProps>(
