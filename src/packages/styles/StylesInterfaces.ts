@@ -1,8 +1,7 @@
 import { CSSProperties } from "react";
 import { DefaultTheme, Styles } from "react-jss";
 import { ButtonTheme } from "../Components/Button/ButtonInterfaces";
-
-type ValueType<T> = T[keyof T];
+import { ValueType } from "./ThemeUtils";
 
 export type CSSObject<
   C extends string = string,
@@ -14,6 +13,15 @@ export interface MeltingPotTheme {
   palette: {
     primary: string;
     secondary: string;
+    greys: {
+      lightest: string;
+      lighter: string;
+      light: string;
+      medium: string;
+      dark: string;
+      darker: string;
+      darkest: string;
+    };
   };
   typography?: CSSProperties;
   components?: {

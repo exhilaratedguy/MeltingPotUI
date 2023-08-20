@@ -1,5 +1,9 @@
 import { CSSObject } from "./StylesInterfaces";
 
+export type BaseVariant = "default";
+
+export type ValueType<T> = T[keyof T];
+
 export type VariantThemes<Keys extends string, Theme> = Partial<
   Record<Keys, Theme>
 >;
