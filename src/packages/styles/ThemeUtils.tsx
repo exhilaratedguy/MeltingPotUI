@@ -1,7 +1,15 @@
 import { CSSObject } from "./StylesInterfaces";
 
-export type VariantThemes<Keys extends Array<string>, Theme> = Partial<
-  Record<Keys[number], Theme>
+export type VariantThemes<Keys extends string, Theme> = Partial<
+  Record<Keys, Theme>
+>;
+
+export type NestedVariantThemes<
+  Variants extends string,
+  States extends string,
+  BaseTheme
+> = Partial<
+  Record<Variants, Partial<BaseTheme & VariantThemes<States, BaseTheme>>>
 >;
 
 export const mergeThemeStyle = (themeStyle: CSSObject | undefined) => {

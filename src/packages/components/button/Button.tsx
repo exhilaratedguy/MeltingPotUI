@@ -1,20 +1,22 @@
-import { PropsWithChildren } from "react";
+import { cx } from "classix";
+import { forwardRef } from "react";
 import { useButtonStyles } from "./Button.styles";
 import { ButtonProps } from "./ButtonInterfaces";
-import { cx } from "classix";
 
-const Button = ({
-  children,
-  className,
-  ...buttonProps
-}: PropsWithChildren<ButtonProps>) => {
-  const classes = useButtonStyles({ disabled: buttonProps.disabled });
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ children, className, ...buttonProps }, ref) => {
+    const classes = useButtonStyles({ disabled: buttonProps.disabled });
 
-  return (
-    <button className={cx(classes.button, className)} {...buttonProps}>
-      <span className={classes.label}>{children}</span>
-    </button>
-  );
-};
+    return (
+      <button
+        ref={ref}
+        className={cx(classes.button, className)}
+        {...buttonProps}
+      >
+        <span className={classes.label}>{children}</span>
+      </button>
+    );
+  }
+);
 
 export default Button;

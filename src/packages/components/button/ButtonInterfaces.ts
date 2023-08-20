@@ -1,16 +1,21 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, PropsWithChildren } from "react";
 import type { CSSObject } from "../../Styles/StylesInterfaces";
-import { VariantThemes } from "../../Styles/ThemeUtils";
+import { NestedVariantThemes } from "../../Styles/ThemeUtils";
 
 export interface BaseButtonTheme {
   root?: CSSObject;
   label?: CSSObject;
 }
 
-export type ButtonTheme = BaseButtonTheme &
-  VariantThemes<["disabled", "focused", "hovered"], BaseButtonTheme>;
+export type ButtonTheme = NestedVariantThemes<
+  "default" | "primaryButton",
+  "disabled" | "focused" | "hovered",
+  BaseButtonTheme
+>;
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
+export type ButtonProps = PropsWithChildren<
+  ButtonHTMLAttributes<HTMLButtonElement>
+>;
 
 export interface ButtonStylesProps {
   disabled?: boolean;

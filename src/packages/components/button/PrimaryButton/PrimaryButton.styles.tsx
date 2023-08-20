@@ -1,6 +1,6 @@
-import { createStyles } from "../../Styles/Theme";
-import { applyOpacity, mergeThemeStyle } from "../../Styles/ThemeUtils";
-import { ButtonStylesProps } from "./ButtonInterfaces";
+import { createStyles } from "../../../Styles/Theme";
+import { applyOpacity, mergeThemeStyle } from "../../../Styles/ThemeUtils";
+import { ButtonStylesProps } from "../ButtonInterfaces";
 
 export const useButtonStyles = createStyles<string, ButtonStylesProps>(
   ({ palette, components }) => ({
@@ -14,44 +14,48 @@ export const useButtonStyles = createStyles<string, ButtonStylesProps>(
       borderRadius: 4,
       height: 35,
       transition: "box-shadow 90ms ease-in-out",
-      ...mergeThemeStyle(components?.button?.default?.root),
+      ...mergeThemeStyle(components?.button?.primaryButton?.root),
 
       ...(!props.disabled && {
         "&:hover": {
           backgroundColor: applyOpacity(palette.primary, 80),
 
           "& > span": {
-            ...mergeThemeStyle(components?.button?.default?.hovered?.label),
+            ...mergeThemeStyle(
+              components?.button?.primaryButton?.hovered?.label
+            ),
           },
 
-          ...mergeThemeStyle(components?.button?.default?.hovered?.root),
+          ...mergeThemeStyle(components?.button?.primaryButton?.hovered?.root),
         },
 
         "&:focus": {
           boxShadow: `0px 0px 5px 3px ${palette.primary}`,
 
           "& > span": {
-            ...mergeThemeStyle(components?.button?.default?.focused?.label),
+            ...mergeThemeStyle(
+              components?.button?.primaryButton?.focused?.label
+            ),
           },
 
-          ...mergeThemeStyle(components?.button?.default?.focused?.root),
+          ...mergeThemeStyle(components?.button?.primaryButton?.focused?.root),
         },
       }),
 
       ...(props.disabled && {
         cursor: "default",
         backgroundColor: applyOpacity(palette.primary, 30),
-        ...mergeThemeStyle(components?.button?.default?.disabled?.root),
+        ...mergeThemeStyle(components?.button?.primaryButton?.disabled?.root),
       }),
     }),
 
     label: (props) => ({
       userSelect: "none",
       color: "white",
-      ...mergeThemeStyle(components?.button?.default?.label),
+      ...mergeThemeStyle(components?.button?.primaryButton?.label),
 
       ...(props.disabled && {
-        ...mergeThemeStyle(components?.button?.default?.disabled?.label),
+        ...mergeThemeStyle(components?.button?.primaryButton?.disabled?.label),
       }),
     }),
   })
