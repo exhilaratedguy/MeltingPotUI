@@ -73,10 +73,7 @@ export const applyButtonsTheme = (
     components: { button: buttonTheme },
   };
 
-  const m = merge({}, newTheme, outsideTheme);
-  console.log(variant, m);
-
-  return m;
+  return merge({}, newTheme, outsideTheme);
 };
 
 export const baseButtonTheme = (variant: ButtonVariants): ButtonTheme => ({
