@@ -2,10 +2,10 @@ import { merge } from "lodash";
 import { DefaultTheme, styled } from "styled-components";
 import { mergeDefaultTheme, mergeThemeStyle } from "../../../Styles/ThemeUtils";
 import { baseButtonTheme } from "../BaseButton/BaseButton.styles";
-import { ButtonStylesProps, ButtonTheme } from "../ButtonInterfaces";
+import { ButtonTheme, StyledButtonProps } from "../ButtonInterfaces";
 import { primaryButtonTheme } from "../PrimaryButton/PrimaryButton.styles";
 
-export const StyledButton = styled("button")<ButtonStylesProps>(
+export const StyledButton = styled("button")<StyledButtonProps>(
   ({ theme, disabled, variant }) => ({
     ...mergeThemeStyle(theme.components?.button?.[variant]?.root),
 
@@ -37,11 +37,9 @@ export const StyledButton = styled("button")<ButtonStylesProps>(
   })
 );
 
-export const StyledButtonLabel = styled("span")<ButtonStylesProps>(
+export const StyledButtonLabel = styled("span")<StyledButtonProps>(
   ({ theme, variant, disabled }) => ({
-    ...(!disabled && {
-      ...mergeThemeStyle(theme.components?.button?.[variant]?.label),
-    }),
+    ...mergeThemeStyle(theme.components?.button?.[variant]?.label),
 
     ...(disabled && {
       ...mergeThemeStyle(theme.components?.button?.[variant]?.disabled?.label),

@@ -18,7 +18,9 @@ const Button = forwardRef<HTMLButtonElement, BaseButtonProps>(
           disabled={disabled}
           {...props}
         >
-          <StyledButtonLabel variant={variant}>{children}</StyledButtonLabel>
+          <StyledButtonLabel variant={variant} disabled={disabled}>
+            {children}
+          </StyledButtonLabel>
         </StyledButton>
       </ThemeProvider>
     );

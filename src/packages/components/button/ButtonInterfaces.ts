@@ -27,4 +27,4 @@ export interface BaseButtonProps
 
 export type ButtonProps = Omit<BaseButtonProps, "variant">;
 
-export type ButtonStylesProps = Pick<BaseButtonProps, "disabled" | "variant">;
+export type StyledButtonProps = Pick<BaseButtonProps, "disabled" | "variant">;

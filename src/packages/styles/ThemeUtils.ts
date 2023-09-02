@@ -8,8 +8,8 @@ export type DefaultVariant = typeof defaultVariant;
 
 export type ValueType<T> = T[keyof T];
 
-export type VariantThemes<Keys extends string, Theme> = Partial<
-  Record<Keys, Theme>
+export type VariantThemes<Variant extends string, Theme> = Partial<
+  Record<Variant, Theme>
 >;
 
 export type NestedVariantThemes<
