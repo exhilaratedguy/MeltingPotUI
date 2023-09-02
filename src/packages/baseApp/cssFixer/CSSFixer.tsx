@@ -1,6 +1,5 @@
-import { memo } from "react";
+import { useTheme } from "styled-components";
 import "./CSSFixer.css";
-import { useTheme } from "../../Styles/Theme";
 
 const root = document.getElementById("root");
 
@@ -14,4 +13,4 @@ const CSSFixer = () => {
   return null;
 };
 
-export default memo(CSSFixer);
+export default CSSFixer;

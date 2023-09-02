@@ -1,4 +1,4 @@
-import { MeltingPotTheme } from "../Styles/StylesInterfaces";
+import { MeltingPotTheme } from "../Styles/ThemeInterfaces";
 
 export interface BaseAppProps {
   theme: MeltingPotTheme;

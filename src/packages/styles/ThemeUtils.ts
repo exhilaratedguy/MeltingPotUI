@@ -1,6 +1,10 @@
-import { CSSObject } from "./StylesInterfaces";
+import { merge } from "lodash";
+import { DefaultTheme } from "styled-components";
+import { CSSObject } from "./ThemeInterfaces";
 
-export type BaseVariant = "default";
+const defaultVariant = "default" as const;
+/** Styles applied here will be applied to all variants */
+export type DefaultVariant = typeof defaultVariant;
 
 export type ValueType<T> = T[keyof T];
 
@@ -16,13 +20,41 @@ export type NestedVariantThemes<
   Record<Variants, Partial<BaseTheme & VariantThemes<States, BaseTheme>>>
 >;
 
-export const mergeThemeStyle = (themeStyle: CSSObject | undefined) => {
-  if (typeof themeStyle === "undefined") {
-    return;
-  }
+export const mergeDefaultTheme = <T extends DefaultTheme>(
+  componentName: keyof typeof theme.components,
+  theme: T
+) => {
+  const componentTheme = theme.components[componentName];
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return themeStyle as any;
+  Object.keys(componentTheme).forEach((variant) => {
+    if (variant !== defaultVariant) {
+      componentTheme[variant] = merge(
+        {},
+        componentTheme[defaultVariant],
+        componentTheme[variant]
+      ) as T[keyof T];
+    }
+  });
+};
+
+export const mergeWithBaseTheme = <T extends Record<string, object>>(
+  componentBaseTheme: object,
+  componentVariantThemes: T
+) => {
+  Object.keys(componentVariantThemes).forEach((variant) => {
+    if (variant !== defaultVariant) {
+      componentVariantThemes[variant as keyof T] = merge(
+        {},
+        componentBaseTheme,
+        componentVariantThemes[variant]
+      ) as T[keyof T];
+    }
+  });
+};
+
+// For any future logic on processing styles coming from outside theme before merging
+export const mergeThemeStyle = (themeStyle: CSSObject | undefined) => {
+  return themeStyle;
 };
 
 export const applyOpacity = (color: string, percentage: number) => {

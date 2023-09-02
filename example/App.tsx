@@ -1,24 +1,21 @@
-import { DefaultTheme } from "react-jss";
+import { DefaultTheme, styled } from "styled-components";
 import BaseApp from "../src/packages/BaseApp/BaseApp";
-import Button from "../src/packages/Components/Button/Button/Button";
+import BaseButton from "../src/packages/Components/Button/BaseButton/BaseButton";
 import PrimaryButton from "../src/packages/Components/Button/PrimaryButton/PrimaryButton";
-import { createStyles } from "../src/packages/Styles/Theme";
 
 const App = () => {
-  const classes = styles();
-
   return (
     <BaseApp theme={exampleTheme}>
-      <div className={classes.main}>
+      <StyledMain>
         <div>
           <PrimaryButton>Programming</PrimaryButton>
           <PrimaryButton disabled>Programming</PrimaryButton>
         </div>
         <div>
-          <Button>Programming</Button>
-          <Button disabled>Programming</Button>
+          <BaseButton>Programming</BaseButton>
+          <BaseButton disabled>Programming</BaseButton>
         </div>
-      </div>
+      </StyledMain>
     </BaseApp>
   );
 };
@@ -49,18 +46,18 @@ const exampleTheme: DefaultTheme = {
   },
 };
 
-const styles = createStyles({
-  main: {
-    position: "absolute",
-    top: "40%",
-    left: "25%",
+const StyledMain = styled("div")({
+  position: "absolute",
+  top: "40%",
+  left: "25%",
 
-    "& > div": {
-      marginBottom: 35,
+  "& > div": {
+    marginBottom: 35,
 
+    ...(true && {
       "& > button": {
         marginRight: 15,
       },
-    },
+    }),
   },
 });

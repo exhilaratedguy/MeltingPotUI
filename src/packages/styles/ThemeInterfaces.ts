@@ -1,13 +1,8 @@
 import { CSSProperties } from "react";
-import { DefaultTheme, Styles } from "react-jss";
+import { StyledObject } from "styled-components";
 import { ButtonTheme } from "../Components/Button/ButtonInterfaces";
-import { ValueType } from "./ThemeUtils";
 
-export type CSSObject<
-  C extends string = string,
-  P = unknown,
-  T = DefaultTheme
-> = ValueType<Styles<C, P, T>>;
+export type CSSObject<Props extends object = object> = StyledObject<Props>;
 
 export interface MeltingPotTheme {
   palette: {

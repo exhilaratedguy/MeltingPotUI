@@ -1,15 +1,18 @@
 import { ButtonHTMLAttributes, PropsWithChildren } from "react";
-import type { CSSObject } from "../../Styles/StylesInterfaces";
-import type { BaseVariant, NestedVariantThemes } from "../../Styles/ThemeUtils";
+import { CSSObject } from "../../Styles/ThemeInterfaces";
+import type {
+  DefaultVariant,
+  NestedVariantThemes,
+} from "../../Styles/ThemeUtils";
 
 export interface BaseButtonTheme {
   root?: CSSObject;
   label?: CSSObject;
 }
 
-export type ButtonVariants = BaseVariant | "primary";
+export type ButtonVariants = DefaultVariant | "base" | "primary";
 
-type ButtonStates = "disabled" | "focused" | "hovered";
+export type ButtonStates = "disabled" | "focused" | "hovered";
 
 export type ButtonTheme = NestedVariantThemes<
   ButtonVariants,

@@ -1,13 +1,13 @@
 import { forwardRef, memo } from "react";
-import BaseButton from "../BaseButton/BaseButton";
+import Button from "../Button/Button";
 import { ButtonProps } from "../ButtonInterfaces";
 
 const PrimaryButton = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, ...props }, ref) => {
     return (
-      <BaseButton variant="primary" ref={ref} {...props}>
+      <Button variant="primary" ref={ref} {...props}>
         {children}
-      </BaseButton>
+      </Button>
     );
   }
 );
