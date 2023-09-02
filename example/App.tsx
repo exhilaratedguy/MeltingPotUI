@@ -3,6 +3,8 @@ import BaseApp from "../src/packages/BaseApp/BaseApp";
 import BaseButton from "../src/packages/Components/Button/BaseButton/BaseButton";
 import PrimaryButton from "../src/packages/Components/Button/PrimaryButton/PrimaryButton";
 
+import "./RuntimeViteErrors";
+
 const App = () => {
   return (
     <BaseApp theme={exampleTheme}>
