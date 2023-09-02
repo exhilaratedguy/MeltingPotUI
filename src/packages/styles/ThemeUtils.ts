@@ -20,10 +20,10 @@ export type NestedVariantThemes<
   Record<Variants, Partial<BaseTheme & VariantThemes<States, BaseTheme>>>
 >;
 
-export const mergeDefaultTheme = <T extends DefaultTheme>(
+export const mergeDefaultTheme = (
   componentName: keyof typeof theme.components,
-  theme: T
-) => {
+  theme: Partial<DefaultTheme>
+): Partial<DefaultTheme> => {
   const componentTheme = theme.components[componentName];
 
   Object.keys(componentTheme).forEach((variant) => {
@@ -32,24 +32,11 @@ export const mergeDefaultTheme = <T extends DefaultTheme>(
         {},
         componentTheme[defaultVariant],
         componentTheme[variant]
-      ) as T[keyof T];
+      );
     }
   });
-};
 
-export const mergeWithBaseTheme = <T extends Record<string, object>>(
-  componentBaseTheme: object,
-  componentVariantThemes: T
-) => {
-  Object.keys(componentVariantThemes).forEach((variant) => {
-    if (variant !== defaultVariant) {
-      componentVariantThemes[variant as keyof T] = merge(
-        {},
-        componentBaseTheme,
-        componentVariantThemes[variant]
-      ) as T[keyof T];
-    }
-  });
+  return theme;
 };
 
 // For any future logic on processing styles coming from outside theme before merging
