@@ -1,7 +1,7 @@
 import { DefaultTheme, styled } from "styled-components";
 import BaseApp from "../src/packages/BaseApp/BaseApp";
-import BaseButton from "../src/packages/Components/Button/BaseButton/BaseButton";
 import PrimaryButton from "../src/packages/Components/Button/PrimaryButton/PrimaryButton";
+import SimpleButton from "../src/packages/Components/Button/SimpleButton/SimpleButton";
 
 import "./RuntimeViteErrors";
 
@@ -14,8 +14,8 @@ const App = () => {
           <PrimaryButton disabled>Programming</PrimaryButton>
         </div>
         <div>
-          <BaseButton>Programming</BaseButton>
-          <BaseButton disabled>Programming</BaseButton>
+          <SimpleButton>Programming</SimpleButton>
+          <SimpleButton disabled>Programming</SimpleButton>
         </div>
       </StyledMain>
     </BaseApp>
@@ -43,7 +43,9 @@ const exampleTheme: DefaultTheme = {
   },
   components: {
     button: {
-      default: {},
+      default: {
+        label: { color: "red" },
+      },
     },
   },
 };

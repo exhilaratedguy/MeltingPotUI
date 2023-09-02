@@ -1,15 +1,30 @@
-import { forwardRef, memo } from "react";
-import Button from "../Button/Button";
-import { ButtonProps } from "../ButtonInterfaces";
+import { forwardRef } from "react";
+import { ThemeProvider } from "styled-components";
+import { BaseButtonProps } from "../ButtonInterfaces";
+import {
+  StyledButton,
+  StyledButtonLabel,
+  applyButtonsTheme,
+} from "./BaseButton.styles";
 
-const BaseButton = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, ...props }, ref) => {
+const Button = forwardRef<HTMLButtonElement, BaseButtonProps>(
+  ({ variant, children, disabled, ...props }, ref) => {
     return (
-      <Button variant="base" ref={ref} {...props}>
-        {children}
-      </Button>
+      <ThemeProvider theme={applyButtonsTheme}>
+        <StyledButton
+          variant={variant}
+          ref={ref}
+          type="button"
+          disabled={disabled}
+          {...props}
+        >
+          <StyledButtonLabel variant={variant} disabled={disabled}>
+            {children}
+          </StyledButtonLabel>
+        </StyledButton>
+      </ThemeProvider>
     );
   }
 );
 
-export default memo(BaseButton);
+export default Button;

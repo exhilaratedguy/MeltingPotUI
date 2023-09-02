@@ -10,7 +10,7 @@ export interface BaseButtonTheme {
   label?: CSSObject;
 }
 
-export type ButtonVariants = DefaultVariant | "base" | "primary";
+export type ButtonVariants = DefaultVariant | "simple" | "primary";
 
 export type ButtonStates = "disabled" | "focused" | "hovered";
 
