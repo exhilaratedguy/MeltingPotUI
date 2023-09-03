@@ -8,11 +8,19 @@ import {
 } from "./BaseButton.styles";
 
 const Button = forwardRef<HTMLButtonElement, BaseButtonProps>(
-  ({ variant = "default", children, ...props }, ref) => {
+  ({ variant = "default", children, disabled, ...props }, ref) => {
     return (
       <ThemeProvider theme={applyButtonsTheme}>
-        <StyledButton variant={variant} ref={ref} type="button" {...props}>
-          <StyledButtonLabel variant={variant}>{children}</StyledButtonLabel>
+        <StyledButton
+          variant={variant}
+          ref={ref}
+          type="button"
+          disabled={disabled}
+          {...props}
+        >
+          <StyledButtonLabel variant={variant} disabled={disabled}>
+            {children}
+          </StyledButtonLabel>
         </StyledButton>
       </ThemeProvider>
     );
