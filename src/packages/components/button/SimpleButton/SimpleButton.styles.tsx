@@ -13,4 +13,10 @@ export const simpleButtonTheme = (
       backgroundColor: theme.palette.greys.lightest,
     },
   },
+
+  focused: {
+    root: {
+      backgroundColor: theme.palette.greys.lightest,
+    },
+  },
 });
