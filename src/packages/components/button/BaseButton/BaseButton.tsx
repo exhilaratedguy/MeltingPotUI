@@ -8,7 +8,7 @@ import {
 } from "./BaseButton.styles";
 
 const Button = forwardRef<HTMLButtonElement, BaseButtonProps>(
-  ({ variant, children, disabled, ...props }, ref) => {
+  ({ variant = "default", children, disabled, ...props }, ref) => {
     return (
       <ThemeProvider theme={applyButtonsTheme}>
         <StyledButton

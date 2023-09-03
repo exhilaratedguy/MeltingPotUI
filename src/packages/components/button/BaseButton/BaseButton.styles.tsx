@@ -1,6 +1,9 @@
 import { merge } from "lodash";
 import { DefaultTheme, styled } from "styled-components";
-import { mergeDefaultTheme, mergeThemeStyle } from "../../../Styles/ThemeUtils";
+import {
+  mergeDefaultAndVariantThemes,
+  mergeThemeStyle,
+} from "../../../Styles/ThemeUtils";
 import { ButtonTheme, StyledButtonProps } from "../ButtonInterfaces";
 import { primaryButtonTheme } from "../PrimaryButton/PrimaryButton.styles";
 import { simpleButtonTheme } from "../SimpleButton/SimpleButton.styles";
@@ -48,11 +51,11 @@ export const StyledButtonLabel = styled("span")<StyledButtonProps>(
 );
 
 export const applyButtonsTheme = (theme: DefaultTheme): DefaultTheme => {
-  // Merge default component theme first, so that it's applied to all variant themes
+  // Merge "default" variant theme first, so that it's applied to all variant themes
   merge(defaultButtonTheme, theme.components.button.default);
 
-  // Create theme with helper function that applies default component theme on variant themes
-  const newTheme = mergeDefaultTheme("button", {
+  // Create theme with base styles for buttons
+  const newTheme: Partial<DefaultTheme> = {
     components: {
       button: {
         default: defaultButtonTheme,
@@ -60,10 +63,25 @@ export const applyButtonsTheme = (theme: DefaultTheme): DefaultTheme => {
         primary: primaryButtonTheme(theme),
       },
     },
-  } as Partial<DefaultTheme>);
+  };
+
+  // Helper function that applies "default" variant theme on all other variant themes
+  const mergedButtonsTheme = mergeDefaultAndVariantThemes(
+    defaultButtonTheme,
+    newTheme.components.button,
+    theme.components.button
+  );
 
   // Merge with user's theme
-  return merge({}, newTheme, theme);
+  return merge(
+    {},
+    {
+      components: {
+        button: mergedButtonsTheme,
+      },
+    } as Partial<DefaultTheme>,
+    theme
+  );
 };
 
 const defaultButtonTheme: ButtonTheme["default"] = {

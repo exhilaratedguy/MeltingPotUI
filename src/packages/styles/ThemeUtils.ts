@@ -1,4 +1,4 @@
-import { merge } from "lodash";
+import { cloneDeep, merge } from "lodash";
 import { DefaultTheme } from "styled-components";
 import { CSSObject } from "./ThemeInterfaces";
 
@@ -6,37 +6,45 @@ const defaultVariant = "default" as const;
 /** Styles applied here will be applied to all variants */
 export type DefaultVariant = typeof defaultVariant;
 
-export type ValueType<T> = T[keyof T];
+/** Workaround for allowing any string, while still keeping autocomplete for other values */
+export type AnyString = string & { _IGNOREME?: never };
 
 export type VariantThemes<Variant extends string, Theme> = Partial<
   Record<Variant, Theme>
+>;
+
+type NestedVariantThemesValue<States extends string, BaseTheme> = Partial<
+  BaseTheme & VariantThemes<States, BaseTheme>
 >;
 
 export type NestedVariantThemes<
   Variants extends string,
   States extends string,
   BaseTheme
-> = Partial<
-  Record<Variants, Partial<BaseTheme & VariantThemes<States, BaseTheme>>>
->;
+> = Partial<Record<Variants, NestedVariantThemesValue<States, BaseTheme>>> &
+  Partial<Record<string, NestedVariantThemesValue<States, BaseTheme>>>;
 
-export const mergeDefaultTheme = (
-  componentName: keyof typeof theme.components,
-  theme: Partial<DefaultTheme>
-): Partial<DefaultTheme> => {
-  const componentTheme = theme.components[componentName];
+export const mergeDefaultAndVariantThemes = <
+  CName extends keyof DefaultTheme["components"],
+  CT extends Partial<DefaultTheme["components"][CName]>
+>(
+  defaultComponentTheme: object,
+  buttonTheme: CT,
+  userButtonTheme: CT
+): CT => {
+  const newComponentTheme = cloneDeep(merge({}, buttonTheme, userButtonTheme));
 
-  Object.keys(componentTheme).forEach((variant) => {
+  Object.keys(newComponentTheme).forEach((variant) => {
     if (variant !== defaultVariant) {
-      componentTheme[variant] = merge(
+      newComponentTheme[variant as keyof CT] = merge(
         {},
-        componentTheme[defaultVariant],
-        componentTheme[variant]
-      );
+        defaultComponentTheme,
+        newComponentTheme[variant]
+      ) as CT[keyof CT];
     }
   });
 
-  return theme;
+  return newComponentTheme;
 };
 
 // For any future logic on processing styles coming from outside theme before merging
