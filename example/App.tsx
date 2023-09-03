@@ -63,7 +63,7 @@ const StyledMain = styled("div")({
 
     ...(true && {
       "& > button": {
-        marginRight: 15,
+        marginRight: 25,
       },
     }),
   },
