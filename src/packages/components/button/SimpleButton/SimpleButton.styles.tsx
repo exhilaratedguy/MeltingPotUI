@@ -1,4 +1,5 @@
 import { DefaultTheme } from "styled-components";
+import { applyOpacity } from "../../../Styles/ThemeUtils";
 import { ButtonTheme } from "../ButtonInterfaces";
 
 export const simpleButtonTheme = (
@@ -17,6 +18,12 @@ export const simpleButtonTheme = (
   focused: {
     root: {
       backgroundColor: theme.palette.greys.lightest,
+    },
+  },
+
+  disabled: {
+    label: {
+      color: applyOpacity(theme.palette.greys.darker, 30),
     },
   },
 });

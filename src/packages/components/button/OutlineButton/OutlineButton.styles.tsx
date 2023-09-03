@@ -15,7 +15,11 @@ export const outlineButtonTheme = (
 
   hovered: {
     root: {
-      borderColor: applyOpacity(theme.palette.primary, 80),
+      borderColor: applyOpacity(theme.palette.primary, 60),
+    },
+
+    label: {
+      color: applyOpacity(theme.palette.primary, 60),
     },
   },
 
@@ -28,6 +32,10 @@ export const outlineButtonTheme = (
   disabled: {
     root: {
       borderColor: applyOpacity(theme.palette.primary, 30),
+    },
+
+    label: {
+      color: applyOpacity(theme.palette.primary, 30),
     },
   },
 });
