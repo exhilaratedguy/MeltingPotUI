@@ -1,5 +1,6 @@
 import { DefaultTheme, styled } from "styled-components";
 import BaseApp from "../src/packages/BaseApp/BaseApp";
+import OutlineButton from "../src/packages/Components/Button/OutlineButton/OutlineButton";
 import PrimaryButton from "../src/packages/Components/Button/PrimaryButton/PrimaryButton";
 import SimpleButton from "../src/packages/Components/Button/SimpleButton/SimpleButton";
 
@@ -16,6 +17,10 @@ const App = () => {
         <div>
           <SimpleButton>Programming</SimpleButton>
           <SimpleButton disabled>Programming</SimpleButton>
+        </div>
+        <div>
+          <OutlineButton>Programming</OutlineButton>
+          <OutlineButton disabled>Programming</OutlineButton>
         </div>
       </StyledMain>
     </BaseApp>
@@ -43,9 +48,7 @@ const exampleTheme: DefaultTheme = {
   },
   components: {
     button: {
-      default: {
-        label: { color: "red" },
-      },
+      default: {},
     },
   },
 };

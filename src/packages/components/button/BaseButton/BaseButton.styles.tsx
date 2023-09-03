@@ -5,6 +5,7 @@ import {
   mergeThemeStyle,
 } from "../../../Styles/ThemeUtils";
 import { ButtonTheme, StyledButtonProps } from "../ButtonInterfaces";
+import { outlineButtonTheme } from "../OutlineButton/OutlineButton.styles";
 import { primaryButtonTheme } from "../PrimaryButton/PrimaryButton.styles";
 import { simpleButtonTheme } from "../SimpleButton/SimpleButton.styles";
 
@@ -60,6 +61,7 @@ export const applyButtonsTheme = (theme: DefaultTheme): DefaultTheme => {
       button: {
         default: defaultButtonTheme,
         simple: simpleButtonTheme(theme),
+        outline: outlineButtonTheme(theme),
         primary: primaryButtonTheme(theme),
       },
     },
@@ -95,6 +97,7 @@ const defaultButtonTheme: ButtonTheme["default"] = {
     borderRadius: 4,
     height: 35,
     transition: "box-shadow 90ms ease-in-out",
+    // TODO: Change font-weight
   },
 
   label: {
