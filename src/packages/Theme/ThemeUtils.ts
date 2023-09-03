@@ -21,33 +21,36 @@ export type NestedVariantThemes<
   Variants extends string,
   States extends string,
   BaseTheme
-> = Partial<Record<Variants, NestedVariantThemesValue<States, BaseTheme>>> &
-  Partial<Record<string, NestedVariantThemesValue<States, BaseTheme>>>;
+> = Partial<
+  Record<Variants | AnyString, NestedVariantThemesValue<States, BaseTheme>>
+>;
 
 export const mergeDefaultAndVariantThemes = <
   CName extends keyof DefaultTheme["components"],
-  CT extends Partial<DefaultTheme["components"][CName]>
+  CTheme extends Partial<DefaultTheme["components"][CName]>
 >(
   defaultComponentTheme: object,
-  buttonTheme: CT,
-  userButtonTheme: CT
-): CT => {
-  const newComponentTheme = cloneDeep(merge({}, buttonTheme, userButtonTheme));
+  componentTheme: CTheme,
+  outerComponentTheme: CTheme
+): CTheme => {
+  const newComponentTheme = cloneDeep(
+    merge({}, componentTheme, outerComponentTheme)
+  );
 
   Object.keys(newComponentTheme).forEach((variant) => {
     if (variant !== defaultVariant) {
-      newComponentTheme[variant as keyof CT] = merge(
+      newComponentTheme[variant as keyof CTheme] = merge(
         {},
         defaultComponentTheme,
         newComponentTheme[variant]
-      ) as CT[keyof CT];
+      ) as CTheme[keyof CTheme];
     }
   });
 
   return newComponentTheme;
 };
 
-// For any future logic on processing styles coming from outside theme before merging
+// For any future logic on processing styles coming from outer theme before merging
 export const mergeThemeStyle = (themeStyle: CSSObject | undefined) => {
   return themeStyle;
 };
