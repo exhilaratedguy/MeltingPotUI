@@ -1,5 +1,7 @@
 # Melting Pot UI
 
-A UI library for React JS built with styled-commponents.
+React + TypeScript + Vite
 
-Components documentation and playgrounds using Storybook.
+Melting Pot UI is a library of components for React JS built using styled-commponents.
+
+A list of Melting Pot UI's components and their documentation was built with Storybook.
