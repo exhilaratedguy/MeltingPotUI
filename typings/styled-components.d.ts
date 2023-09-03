@@ -1,6 +1,6 @@
 import "styled-components";
 import type { CSSProp } from "styled-components";
-import type { MeltingPotTheme } from "../src/packages/Styles/ThemeInterfaces";
+import type { MeltingPotTheme } from "../src/packages/Theme/ThemeInterfaces";
 
 declare module "react" {
   interface Attributes {

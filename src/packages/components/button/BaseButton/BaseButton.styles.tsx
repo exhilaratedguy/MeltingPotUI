@@ -3,7 +3,7 @@ import { DefaultTheme, styled } from "styled-components";
 import {
   mergeDefaultAndVariantThemes,
   mergeThemeStyle,
-} from "../../../Styles/ThemeUtils";
+} from "../../../Theme/ThemeUtils";
 import { ButtonTheme, StyledButtonProps } from "../ButtonInterfaces";
 import { outlineButtonTheme } from "../OutlineButton/OutlineButton.styles";
 import { primaryButtonTheme } from "../PrimaryButton/PrimaryButton.styles";

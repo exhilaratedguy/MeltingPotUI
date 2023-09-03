@@ -1,10 +1,10 @@
 import { ButtonHTMLAttributes, PropsWithChildren } from "react";
-import { CSSObject } from "../../Styles/ThemeInterfaces";
+import { CSSObject } from "../../Theme/ThemeInterfaces";
 import type {
   AnyString,
   DefaultVariant,
   NestedVariantThemes,
-} from "../../Styles/ThemeUtils";
+} from "../../Theme/ThemeUtils";
 
 export interface BaseButtonTheme {
   root?: CSSObject;

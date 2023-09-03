@@ -1,5 +1,5 @@
 import { DefaultTheme } from "styled-components";
-import { applyOpacity } from "../../../Styles/ThemeUtils";
+import { applyOpacity } from "../../../Theme/ThemeUtils";
 import { ButtonTheme } from "../ButtonInterfaces";
 
 export const primaryButtonTheme = (
