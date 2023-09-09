@@ -93,7 +93,7 @@ const defaultButtonTheme: ButtonTheme["default"] = {
     cursor: "pointer",
     backgroundColor: "transparent",
     border: "1px solid transparent",
-    padding: "3px 10px 5px 10px",
+    padding: "3px 10px",
     borderRadius: 4,
     height: 35,
     transition: "box-shadow 90ms ease-in-out, background-color 150ms linear",
