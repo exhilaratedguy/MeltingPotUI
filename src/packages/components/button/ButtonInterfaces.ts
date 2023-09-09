@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, PropsWithChildren } from "react";
+import { ButtonHTMLAttributes, ComponentType, PropsWithChildren } from "react";
 import { CSSObject } from "../../Theme/ThemeInterfaces";
 import type {
   AnyString,
@@ -31,6 +31,12 @@ export interface BaseButtonProps
   variant?: ButtonVariants;
 }
 
+export interface BaseIconButtonProps<P = unknown> extends BaseButtonProps {
+  startIcon?: ComponentType<P>;
+  endIcon?: ComponentType<P>;
+}
+
 export type ButtonProps = Omit<BaseButtonProps, "variant">;
+export type IconButtonProps = Omit<BaseIconButtonProps, "variant">;
 
 export type StyledButtonProps = Pick<BaseButtonProps, "disabled" | "variant">;
