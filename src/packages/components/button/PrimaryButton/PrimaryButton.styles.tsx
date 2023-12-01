@@ -7,9 +7,6 @@ export const primaryButtonTheme = (
 ): ButtonTheme["primary"] => ({
   root: {
     backgroundColor: theme.palette.primary,
-  },
-
-  label: {
     color: "white",
   },
 

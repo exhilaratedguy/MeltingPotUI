@@ -8,7 +8,6 @@ import type {
 
 export interface BaseButtonTheme {
   root?: CSSObject;
-  label?: CSSObject;
 }
 
 export type ButtonVariants =
