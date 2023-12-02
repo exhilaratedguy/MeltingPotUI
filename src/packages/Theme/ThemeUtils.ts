@@ -3,6 +3,7 @@ import { DefaultTheme } from "styled-components";
 import { CSSObject } from "./ThemeInterfaces";
 
 const defaultVariant = "default" as const;
+
 /** Styles applied here will be applied to all variants */
 export type DefaultVariant = typeof defaultVariant;
 

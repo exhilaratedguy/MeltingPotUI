@@ -31,8 +31,8 @@ export interface BaseButtonProps
 }
 
 export interface BaseIconButtonProps<P = unknown> extends BaseButtonProps {
-  startIcon?: ComponentType<P>;
-  endIcon?: ComponentType<P>;
+  startIcon?: ComponentType<P> | JSX.Element;
+  endIcon?: ComponentType<P> | JSX.Element;
 }
 
 export type ButtonProps = Omit<BaseButtonProps, "variant">;

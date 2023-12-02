@@ -1,6 +1,6 @@
 import { forwardRef, memo } from "react";
-import IconButton from "../BaseIconButton/BaseIconButton";
 import { IconButtonProps } from "../ButtonInterfaces";
+import IconButton from "../IconButton/IconButton";
 
 const PrimaryIconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   ({ children, ...props }, ref) => {

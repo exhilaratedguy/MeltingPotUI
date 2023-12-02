@@ -17,14 +17,14 @@ const IconButton = forwardRef<HTMLButtonElement, BaseIconButtonProps>(
     return (
       <Button variant={variant} ref={ref} {...props}>
         {StartIcon && (
-          <Icon>
-            <StartIcon />
+          <Icon position="left">
+            {typeof StartIcon === "function" ? <StartIcon /> : StartIcon}
           </Icon>
         )}
         {children}
         {EndIcon && (
-          <Icon>
-            <EndIcon />
+          <Icon position="right">
+            {typeof EndIcon === "function" ? <EndIcon /> : EndIcon}
           </Icon>
         )}
       </Button>
