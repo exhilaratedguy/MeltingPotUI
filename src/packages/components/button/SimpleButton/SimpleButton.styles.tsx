@@ -5,7 +5,7 @@ import { ButtonTheme } from "../ButtonInterfaces";
 export const simpleButtonTheme = (
   theme: DefaultTheme
 ): ButtonTheme["simple"] => ({
-  label: {
+  root: {
     color: theme.palette.greys.darker,
   },
 
@@ -22,7 +22,7 @@ export const simpleButtonTheme = (
   },
 
   disabled: {
-    label: {
+    root: {
       color: applyOpacity(theme.palette.greys.darker, 30),
     },
   },

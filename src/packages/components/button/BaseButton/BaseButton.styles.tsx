@@ -16,37 +16,15 @@ export const StyledButton = styled("button")<StyledButtonProps>(
     ...(!disabled && {
       "&:hover": {
         ...mergeThemeStyle(theme.components?.button?.[variant]?.hovered?.root),
-
-        "& > span": {
-          ...mergeThemeStyle(
-            theme.components?.button?.[variant]?.hovered?.label
-          ),
-        },
       },
 
       "&:focus": {
         ...mergeThemeStyle(theme.components?.button?.[variant]?.focused?.root),
-
-        "& > span": {
-          ...mergeThemeStyle(
-            theme.components?.button?.[variant]?.focused?.label
-          ),
-        },
       },
     }),
 
     ...(disabled && {
       ...mergeThemeStyle(theme.components?.button?.[variant]?.disabled?.root),
-    }),
-  })
-);
-
-export const StyledButtonLabel = styled("span")<StyledButtonProps>(
-  ({ theme, variant, disabled }) => ({
-    ...mergeThemeStyle(theme.components?.button?.[variant]?.label),
-
-    ...(disabled && {
-      ...mergeThemeStyle(theme.components?.button?.[variant]?.disabled?.label),
     }),
   })
 );
@@ -90,20 +68,20 @@ const defaultButtonTheme: ButtonTheme["default"] = {
   root: {
     all: "unset",
     position: "relative",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
     cursor: "pointer",
     backgroundColor: "transparent",
     border: "1px solid transparent",
     padding: "3px 10px",
     borderRadius: 4,
     height: 35,
-    transition: "box-shadow 90ms ease-in-out, background-color 150ms linear",
-    // TODO: Change font-weight
-  },
-
-  label: {
     userSelect: "none",
     color: "black",
-    transition: "color 150ms linear",
+    transition:
+      "box-shadow 90ms ease-in-out, background-color 150ms linear, color 150ms linear",
+    // TODO: Change font-weight
   },
 
   disabled: {

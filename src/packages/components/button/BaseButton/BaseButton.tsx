@@ -1,11 +1,7 @@
 import { forwardRef } from "react";
 import { ThemeProvider } from "styled-components";
 import { BaseButtonProps } from "../ButtonInterfaces";
-import {
-  StyledButton,
-  StyledButtonLabel,
-  applyButtonsTheme,
-} from "./BaseButton.styles";
+import { StyledButton, applyButtonsTheme } from "./BaseButton.styles";
 
 const Button = forwardRef<HTMLButtonElement, BaseButtonProps>(
   ({ variant = "default", children, disabled, ...props }, ref) => {
@@ -18,9 +14,7 @@ const Button = forwardRef<HTMLButtonElement, BaseButtonProps>(
           disabled={disabled}
           {...props}
         >
-          <StyledButtonLabel variant={variant} disabled={disabled}>
-            {children}
-          </StyledButtonLabel>
+          {children}
         </StyledButton>
       </ThemeProvider>
     );
