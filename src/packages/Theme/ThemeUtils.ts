@@ -1,6 +1,6 @@
 import { cloneDeep, merge } from "lodash";
 import { DefaultTheme } from "styled-components";
-import { CSSObject } from "./ThemeInterfaces";
+import type { CSSObject } from "./ThemeInterfaces";
 
 const defaultVariant = "default" as const;
 

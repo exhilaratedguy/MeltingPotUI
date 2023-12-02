@@ -1,8 +1,11 @@
 import { CSSProperties } from "react";
 import { StyledObject } from "styled-components";
-import { ButtonTheme } from "../Components/Button/ButtonInterfaces";
+import type { ButtonTheme } from "../Components/Button/ButtonInterfaces";
+import type { IconTheme } from "../Components/Icon/IconInterfaces";
 
 export type CSSObject<Props extends object = object> = StyledObject<Props>;
+
+export type CommonStates = "disabled" | "focused" | "hovered";
 
 export interface MeltingPotTheme {
   palette: {
@@ -21,5 +24,6 @@ export interface MeltingPotTheme {
   typography?: CSSProperties;
   components?: {
     button?: ButtonTheme;
+    icon?: IconTheme;
   };
 }

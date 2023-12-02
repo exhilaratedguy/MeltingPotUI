@@ -2,7 +2,7 @@ import { forwardRef, memo } from "react";
 import Button from "../BaseButton/BaseButton";
 import { ButtonProps } from "../ButtonInterfaces";
 
-const BaseButton = forwardRef<HTMLButtonElement, ButtonProps>(
+const SimpleButton = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, ...props }, ref) => {
     return (
       <Button variant="simple" ref={ref} {...props}>
@@ -12,4 +12,4 @@ const BaseButton = forwardRef<HTMLButtonElement, ButtonProps>(
   }
 );
 
-export default memo(BaseButton);
+export default memo(SimpleButton);

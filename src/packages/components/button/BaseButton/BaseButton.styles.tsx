@@ -42,14 +42,23 @@ export const applyButtonsTheme = (theme: DefaultTheme): DefaultTheme => {
         outline: outlineButtonTheme(theme),
         primary: primaryButtonTheme(theme),
       },
+      icon: {
+        default: defaultButtonTheme.icon,
+        startIcon: merge({}, defaultButtonTheme.startIcon, {
+          root: { marginRight: 8 },
+        }),
+        endIcon: merge({}, defaultButtonTheme.endIcon, {
+          root: { marginLeft: 8 },
+        }),
+      },
     },
   };
 
-  // Helper function that applies "default" variant theme on all other variant themes
+  // Helper function that applies "default" Button variant theme on all other Button variant themes
   const mergedButtonsTheme = mergeDefaultAndVariantThemes(
     defaultButtonTheme,
     newTheme.components.button,
-    theme.components.button
+    theme.components?.button
   );
 
   // Merge with user's theme
@@ -58,6 +67,7 @@ export const applyButtonsTheme = (theme: DefaultTheme): DefaultTheme => {
     {
       components: {
         button: mergedButtonsTheme,
+        icon: newTheme.components.icon,
       },
     } as Partial<DefaultTheme>,
     theme

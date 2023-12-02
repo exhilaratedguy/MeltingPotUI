@@ -1,13 +1,17 @@
 import { ButtonHTMLAttributes, ComponentType, PropsWithChildren } from "react";
-import { CSSObject } from "../../Theme/ThemeInterfaces";
-import type {
+import { CSSObject, CommonStates } from "../../Theme/ThemeInterfaces";
+import {
   AnyString,
   DefaultVariant,
   NestedVariantThemes,
 } from "../../Theme/ThemeUtils";
+import { BaseIconTheme } from "../Icon/IconInterfaces";
 
 export interface BaseButtonTheme {
   root?: CSSObject;
+  icon?: BaseIconTheme;
+  startIcon?: BaseIconTheme;
+  endIcon?: BaseIconTheme;
 }
 
 export type ButtonVariants =
@@ -17,22 +21,22 @@ export type ButtonVariants =
   | "primary"
   | AnyString;
 
-export type ButtonStates = "disabled" | "focused" | "hovered";
-
 export type ButtonTheme = NestedVariantThemes<
   ButtonVariants,
-  ButtonStates,
+  CommonStates,
   BaseButtonTheme
 >;
 
 export interface BaseButtonProps
   extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> {
   variant?: ButtonVariants;
+  startIcon?: ComponentType | JSX.Element;
+  endIcon?: ComponentType | JSX.Element;
 }
 
-export interface BaseIconButtonProps<P = unknown> extends BaseButtonProps {
-  startIcon?: ComponentType<P> | JSX.Element;
-  endIcon?: ComponentType<P> | JSX.Element;
+export interface BaseIconButtonProps extends BaseButtonProps {
+  startIcon?: ComponentType | JSX.Element;
+  endIcon?: ComponentType | JSX.Element;
 }
 
 export type ButtonProps = Omit<BaseButtonProps, "variant">;
