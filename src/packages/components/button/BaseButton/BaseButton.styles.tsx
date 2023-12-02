@@ -31,7 +31,7 @@ export const StyledButton = styled("button")<StyledButtonProps>(
 
 export const applyButtonsTheme = (theme: DefaultTheme): DefaultTheme => {
   // Merge "default" variant theme first, so that it's applied to all variant themes
-  merge(defaultButtonTheme, theme.components.button.default);
+  merge(defaultButtonTheme, theme.components?.button?.default);
 
   // Create theme with base styles for buttons
   const newTheme: Partial<DefaultTheme> = {
